@@ -233,12 +233,14 @@ template library does not change their contract.
 ## Development
 
 ```sh
-node --check index.js && node --check client.js
-node tests/selftest.mjs     # 30 checks: protections, admission, parsing, engine
+npm test      # 50 engine/route checks + 6 client-bundle states
+npm run check # syntax check every shipped module
 ```
 
 The tests use a fake `ctx.llm` stream, so they need neither network nor a DSH
-runtime.
+runtime. `CONTRIBUTING.md` lists the invariants a change must not break, and
+[docs/PUBLISHING.md](docs/PUBLISHING.md) covers npm, the community catalog, and the
+market index this repository ships.
 
 ## License
 

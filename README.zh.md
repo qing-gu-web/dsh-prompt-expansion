@@ -169,11 +169,11 @@ Node `^22.15.0 || >=24.0.0`，Cordis `>=4.0.0-rc <5`。
 ## 开发
 
 ```sh
-node --check index.js && node --check client.js
-node tests/selftest.mjs     # 30 项检查：保护、输入准入、解析、引擎
+npm test      # 50 项引擎/路由检查 + 6 种客户端 bundle 状态
+npm run check # 检查每个随包发布模块的语法
 ```
 
-测试使用模拟的 `ctx.llm` 流，不需要网络，也不需要 DSH 运行时。
+测试使用模拟的 `ctx.llm` 流，不需要网络，也不需要 DSH 运行时。`CONTRIBUTING.md` 列了改动不得破坏的几条不变量；[docs/PUBLISHING.md](docs/PUBLISHING.md) 讲 npm 发布、社区目录与仓库自带的插件市场索引。
 
 ## 许可
 
