@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "提示词优化",
+    "description": "把提示词改写成结构化的规格说明——一句总起 + 4–7 组分层编号要求，并补齐这类任务通行的实现细节；同时保证变量、围栏与行内代码、URL、引号内原文和数字逐字不变。点输入框工具行里的闪光图标按钮即可就地改写草稿；完成后旁边会出现 **发送**，可以直接把优化后的提示词发出去，**撤销** 则一键恢复原草稿。也可以在输入框执行 `/optimize [--mode user|system|message] [--goal clarity|structure|concise|professional|creative|technical] [--template generic|professional|analytical|concise|output-format|conversation] [--format structured|plain] <提示词>`。当你要求改进提示词时，Agent 还可以调用 `optimize_prompt` 工具，结果是卡片：优化后的文本、用于对比的原文、变更摘要、警告以及一键复制按钮。每次运行只发起一次模型调用，使用 DSH 已配置的模型；当 `modelSource` 设为 `byok` 时改用你自备的 OpenAI 兼容端点。提示词原文只会发送到该端点，不会发往其他任何地方。插件不会自行改写或发送消息——发送只发生在你点 **发送** 之后。它不会编造事实、数据、链接或引用，所选参数会列在“已假设”里。如果校验发现受保护内容被破坏，它会原样返回原文并说明原因。原文与结果会作为普通工具输出记录在会话日志中，并默认在内存中缓存十分钟。把 `composerButton` 设为 `false` 可隐藏按钮，`format: plain` 改回散文输出。关闭插件会移除按钮、工具、命令与卡片，不留下后台任务。",
+    "detail": "docs/DETAIL.zh.md"
+  }
+}

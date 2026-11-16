@@ -1,0 +1,69 @@
+name: Model compatibility
+description: The plugin works with one model but misbehaves with another
+labels: [model-compat]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Model behaviour is the most common source of surprises. This form collects exactly what is needed to tell "the plugin is wrong" from "this model ignores the JSON contract".
+  - type: input
+    id: dsh
+    attributes:
+      label: DSH version
+      placeholder: 0.2.2-rc.3
+    validations:
+      required: true
+  - type: input
+    id: provider
+    attributes:
+      label: Provider
+      description: The DSH provider id, or `byok` for your own endpoint.
+      placeholder: deepseek-account
+    validations:
+      required: true
+  - type: input
+    id: model
+    attributes:
+      label: Model id
+      placeholder: deepseek-flash
+    validations:
+      required: true
+  - type: dropdown
+    id: failure
+    attributes:
+      label: How it failed
+      options:
+        - Fell back to the original text with a format error
+        - Reported that protected content was destroyed
+        - Reported a truncated output
+        - Returned a result but ignored the required structure
+        - Timed out
+        - Authentication or rate-limit error
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: flags
+    attributes:
+      label: Mode, goal, template, format
+      description: For example `user` / `clarity` / `auto` / `structured`.
+  - type: textarea
+    id: input
+    attributes:
+      label: Redacted input
+      description: The prompt that triggered it, with anything private replaced by X. Keep variables and code fences intact — they are what the protections act on.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: What came back
+      description: The error text, or the suspicious part of the result.
+    validations:
+      required: true
+  - type: input
+    id: works-with
+    attributes:
+      label: A model where it does work
+      description: Optional, but it shortens the diagnosis a lot.

@@ -1,0 +1,81 @@
+name: Bug report
+description: Something does not work as described in the README
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. **Never paste an API key, a full prompt you cannot share, or a session id you want to keep private.** A redacted excerpt is enough.
+  - type: input
+    id: dsh-version
+    attributes:
+      label: DSH version
+      description: Run `dsh --version`, or read it from the app's About panel.
+      placeholder: 0.2.2-rc.3
+    validations:
+      required: true
+  - type: input
+    id: plugin-version
+    attributes:
+      label: Plugin version
+      placeholder: 0.1.0
+    validations:
+      required: true
+  - type: dropdown
+    id: entry
+    attributes:
+      label: Which entry point
+      options:
+        - Composer button (sparkle icon)
+        - `/optimize` command
+        - `optimize_prompt` tool (agent)
+        - Result card
+        - Configuration
+        - Install / activation
+    validations:
+      required: true
+  - type: dropdown
+    id: source
+    attributes:
+      label: Model source
+      options:
+        - Host model (DSH-configured)
+        - BYOK (own OpenAI-compatible endpoint)
+        - Not sure
+    validations:
+      required: true
+  - type: input
+    id: model
+    attributes:
+      label: Provider and model
+      description: For BYOK, the base URL's provider and the model id — never the key.
+      placeholder: deepseek-account / deepseek-flash
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Type `帮我写一个贪吃蛇的 HTML 程序` in the composer
+        2. Click the sparkle button
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened instead
+      description: Paste the error text shown next to the button or in the command result.
+    validations:
+      required: true
+  - type: textarea
+    id: config
+    attributes:
+      label: Relevant configuration
+      description: The `dsh-optimize-prompt` row from `cordis.patch.yml`, with `byok.apiKey` removed.
+      render: yaml

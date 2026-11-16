@@ -1,0 +1,67 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Node ${{ matrix.node }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # The plugin's engines field accepts ^22.15.0 || >=24.0.0.
+        node: ['22', '24']
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Syntax check every shipped module
+        run: npm run check
+
+      - name: Run the test suite
+        run: npm test
+
+  manifest:
+    name: Manifest and market index
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Validate package.json, locales and index.json
+        run: |
+          node -e "
+          const fs = require('node:fs');
+          const manifest = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+          const required = ['name', 'version', 'description', 'license', 'exports', 'files', 'dsh'];
+          const missing = required.filter((key) => manifest[key] === undefined);
+          if (missing.length > 0) throw new Error('package.json is missing: ' + missing.join(', '));
+          if (manifest.dsh.bundle?.patch === undefined) throw new Error('dsh.bundle.patch is required for a bundle');
+          if (manifest.exports['./client'] === undefined) throw new Error('the client export is required');
+          for (const file of ['index.js', 'client.js', 'cordis.patch.yml', manifest.dsh.bundle.patch, 'locale/en.json', 'locale/zh.json']) {
+            if (!fs.existsSync(file)) throw new Error('missing shipped file: ' + file);
+          }
+          for (const file of ['locale/en.json', 'locale/zh.json']) {
+            const locale = JSON.parse(fs.readFileSync(file, 'utf8'));
+            if (locale.meta?.title === undefined || locale.meta?.description === undefined) {
+              throw new Error(file + ' needs meta.title and meta.description');
+            }
+          }
+          if (fs.existsSync('index.json')) JSON.parse(fs.readFileSync('index.json', 'utf8'));
+          console.log('manifest OK');
+          "
+
+      - name: Check the packed file list
+        run: npm pack --dry-run

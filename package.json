@@ -1,0 +1,81 @@
+{
+  "name": "dsh-optimize-prompt",
+  "version": "0.1.0",
+  "description": "Rewrite a prompt into a structured, numbered specification — filling in the implementation conventions the task needs — with variables, code, URLs and numbers preserved byte for byte. | 把提示词改写成分层编号的规格说明，补齐通行实现细节，同时逐字保留变量、代码、URL 与数字。",
+  "license": "MIT",
+  "author": {
+    "name": "qing-gu-web",
+    "url": "https://github.com/qing-gu-web"
+  },
+  "type": "module",
+  "main": "./index.js",
+  "homepage": "https://github.com/qing-gu-web/dsh-optimize-prompt#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qing-gu-web/dsh-optimize-prompt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/qing-gu-web/dsh-optimize-prompt/issues"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "lib",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "docs",
+    "icon.svg",
+    "README.md",
+    "README.zh.md",
+    "CONTRIBUTING.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "dsh-bundle",
+    "deepseek-harness",
+    "cordis",
+    "cordis-plugin",
+    "plugin-market",
+    "prompt",
+    "prompt-optimizer",
+    "prompt-engineering",
+    "prompt-rewrite"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-tool"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": ">=4.0.0-rc <5"
+  },
+  "engines": {
+    "node": "^22.15.0 || >=24.0.0"
+  },
+  "scripts": {
+    "check": "node --check index.js && node --check client.js && node --check lib/engine.js && node --check lib/protect.js && node --check lib/prompts.js && node --check lib/validate.js && node --check lib/i18n.js && node --check lib/route.js && node --check lib/format.js && node -e \"import('./index.js')\"",
+    "test": "node tests/selftest.mjs && node tests/client-selftest.mjs",
+    "index": "node scripts/build-index.mjs"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

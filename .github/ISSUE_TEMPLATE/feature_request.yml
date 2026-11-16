@@ -1,0 +1,42 @@
+name: Feature request
+description: Suggest a capability the plugin does not have yet
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before filing: the "Not implemented (yet)" section of the README lists what is deliberately out of scope for now. A request that changes a promise (for example "auto-send without asking", "expand without limit", "invent missing details") needs to argue why that promise should change.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem are you trying to solve
+      description: Describe the situation, not the proposed implementation.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you would like to happen
+    validations:
+      required: true
+  - type: textarea
+    id: alternative
+    attributes:
+      label: What you do instead today
+      description: A command flag, a different tool, editing the output by hand.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Composer button
+        - `/optimize` command
+        - `optimize_prompt` tool
+        - Result card
+        - Output format
+        - Templates
+        - Configuration
+        - Documentation
+        - Other
+    validations:
+      required: true
