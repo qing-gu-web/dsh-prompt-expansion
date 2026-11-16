@@ -1,0 +1,45 @@
+{
+  "format": 1,
+  "title": {
+    "en": "Community DSH plugins",
+    "zh": "社区 DSH 插件"
+  },
+  "description": {
+    "en": "Plugins published from this repository.",
+    "zh": "本仓库发布的 DSH 插件。"
+  },
+  "plugins": [
+    {
+      "name": "dsh-optimize-prompt",
+      "title": {
+        "en": "Prompt optimizer",
+        "zh": "提示词优化"
+      },
+      "description": {
+        "en": "An icon button in the composer rewrites your draft into a numbered specification, then sends it in one click — with variables, code, URLs and numbers preserved byte for byte.",
+        "zh": "输入框里的图标按钮把草稿改写成分层编号的规格说明，一键即可发送；变量、代码、URL 与数字逐字保留。"
+      },
+      "icon": "icon.svg",
+      "author": "qing-gu-web",
+      "homepage": "https://github.com/qing-gu-web/dsh-optimize-prompt",
+      "repository": {
+        "url": "https://github.com/qing-gu-web/dsh-optimize-prompt"
+      },
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishTimestamp": 1794840228,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/qing-gu-web/dsh-optimize-prompt",
+            "commit": "dafbecec71e7bfa9ecbf6e42d8322a400cf0f418"
+          },
+          "engines": {
+            "dsh": ">=0.2.2-rc.1"
+          },
+          "icon": "icon.svg"
+        }
+      ]
+    }
+  ]
+}

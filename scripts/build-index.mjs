@@ -47,8 +47,10 @@ function normalizeRemote(remote) {
 }
 
 const commit = process.env.DSH_INDEX_COMMIT ?? git(['rev-parse', 'HEAD'])
+const sourceType = process.env.DSH_INDEX_SOURCE === 'npm' ? 'npm' : 'git'
 const publishTimestamp = Number(
-  process.env.DSH_INDEX_TIMESTAMP ?? git(['log', '-1', '--format=%ct']),
+  process.env.DSH_INDEX_TIMESTAMP
+    ?? (sourceType === 'npm' ? Math.floor(Date.now() / 1000) : git(['log', '-1', '--format=%ct'])),
 )
 const repositoryUrl = normalizeRemote(
   process.env.DSH_INDEX_REPO ?? git(['config', '--get', 'remote.origin.url']) ?? '',
@@ -80,11 +82,13 @@ const index = {
         {
           version: manifest.version,
           publishTimestamp,
-          source: {
-            type: 'git',
-            url: repositoryUrl,
-            commit,
-          },
+          source: sourceType === 'npm'
+            ? { type: 'npm' }
+            : {
+                type: 'git',
+                url: repositoryUrl,
+                commit,
+              },
           engines: { dsh: MARKET.dshRange },
           icon: 'icon.svg',
         },
