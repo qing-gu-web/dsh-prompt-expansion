@@ -1,8 +1,8 @@
-# dsh-optimize-prompt
+# dsh-prompt-expansion
 
-[![CI](https://github.com/qing-gu-web/dsh-optimize-prompt/actions/workflows/ci.yml/badge.svg)](https://github.com/qing-gu-web/dsh-optimize-prompt/actions/workflows/ci.yml)
-[![license](https://img.shields.io/github/license/qing-gu-web/dsh-optimize-prompt.svg)](LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/qing-gu-web/dsh-optimize-prompt.svg)](https://github.com/qing-gu-web/dsh-optimize-prompt/stargazers)
+[![CI](https://github.com/qing-gu-web/dsh-prompt-expansion/actions/workflows/ci.yml/badge.svg)](https://github.com/qing-gu-web/dsh-prompt-expansion/actions/workflows/ci.yml)
+[![license](https://img.shields.io/github/license/qing-gu-web/dsh-prompt-expansion.svg)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/qing-gu-web/dsh-prompt-expansion.svg)](https://github.com/qing-gu-web/dsh-prompt-expansion/stargazers)
 
 English | [中文](README.zh.md)
 
@@ -35,7 +35,7 @@ You never get your input silently replaced.
 this repository's plugin index, then install the entry from the list:
 
 ```
-https://raw.githubusercontent.com/qing-gu-web/dsh-optimize-prompt/main/index.json
+https://raw.githubusercontent.com/qing-gu-web/dsh-prompt-expansion/main/index.json
 ```
 
 The index pins a git commit, so an install is reproducible and needs no npm
@@ -46,7 +46,7 @@ the app and point at the directory. A local directory install links the checkout
 so edits take effect without reinstalling.
 
 ```sh
-git clone https://github.com/qing-gu-web/dsh-optimize-prompt.git
+git clone https://github.com/qing-gu-web/dsh-prompt-expansion.git
 ```
 
 Enable the plugin row if it comes up disabled, then start a new session so the
@@ -136,8 +136,8 @@ Configuration lives on the plugin's loader row and can be edited in the
 profile's `cordis.patch.yml` without reinstalling:
 
 ```yaml
-- id: dsh-optimize-prompt
-  name: 'dsh-optimize-prompt'
+- id: dsh-prompt-expansion
+  name: 'dsh-prompt-expansion'
   config:
     modelSource: host          # host | byok
     mode: user

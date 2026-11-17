@@ -12,11 +12,11 @@ commit. Users add its URL in DSH and install from the list:
 **Plugins → Discover → Manage index sources →**
 
 ```
-https://raw.githubusercontent.com/qing-gu-web/dsh-optimize-prompt/main/index.json
+https://raw.githubusercontent.com/qing-gu-web/dsh-prompt-expansion/main/index.json
 ```
 
 No review, no registry, no build step. The entry resolves through pnpm as
-`git+https://github.com/qing-gu-web/dsh-optimize-prompt.git#<commit>`, so an install
+`git+https://github.com/qing-gu-web/dsh-prompt-expansion.git#<commit>`, so an install
 is reproducible and does not follow later commits.
 
 ### Regenerate it after every release
@@ -51,12 +51,12 @@ version.
 Submission is one file, never a README edit:
 
 ```
-data/plugins/qing-gu-web__dsh-optimize-prompt.yml
+data/plugins/qing-gu-web__dsh-prompt-expansion.yml
 ```
 
 ```yaml
-url: https://github.com/qing-gu-web/dsh-optimize-prompt
-name: qing-gu-web/dsh-optimize-prompt
+url: https://github.com/qing-gu-web/dsh-prompt-expansion
+name: qing-gu-web/dsh-prompt-expansion
 category: ui
 description:
   en: A composer button, an /optimize command and an optimize_prompt tool that rewrite a prompt into a numbered specification, leaving variables, code blocks, URLs and numbers unchanged.
@@ -76,7 +76,7 @@ rather than from here; the format moves.
 ## 3. npm — deliberately not done
 
 Publishing to npm would add a registry-mapped row to the community index and enable
-`dsh plugin add dsh-optimize-prompt`. It is blocked on this account, not on the code:
+`dsh plugin add dsh-prompt-expansion`. It is blocked on this account, not on the code:
 
 - npm requires a second factor **for publishing** once 2FA is enabled, and removed
   the "authorization only" mode;

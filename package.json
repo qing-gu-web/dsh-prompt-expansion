@@ -1,5 +1,5 @@
 {
-  "name": "dsh-optimize-prompt",
+  "name": "dsh-prompt-expansion",
   "version": "0.1.0",
   "description": "Rewrite a prompt into a structured, numbered specification — filling in the implementation conventions the task needs — with variables, code, URLs and numbers preserved byte for byte. | 把提示词改写成分层编号的规格说明，补齐通行实现细节，同时逐字保留变量、代码、URL 与数字。",
   "license": "MIT",
@@ -9,13 +9,13 @@
   },
   "type": "module",
   "main": "./index.js",
-  "homepage": "https://github.com/qing-gu-web/dsh-optimize-prompt#readme",
+  "homepage": "https://github.com/qing-gu-web/dsh-prompt-expansion#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/qing-gu-web/dsh-optimize-prompt.git"
+    "url": "git+https://github.com/qing-gu-web/dsh-prompt-expansion.git"
   },
   "bugs": {
-    "url": "https://github.com/qing-gu-web/dsh-optimize-prompt/issues"
+    "url": "https://github.com/qing-gu-web/dsh-prompt-expansion/issues"
   },
   "exports": {
     ".": "./index.js",

@@ -1,8 +1,8 @@
-# dsh-optimize-prompt
+# dsh-prompt-expansion
 
-[![CI](https://github.com/qing-gu-web/dsh-optimize-prompt/actions/workflows/ci.yml/badge.svg)](https://github.com/qing-gu-web/dsh-optimize-prompt/actions/workflows/ci.yml)
-[![license](https://img.shields.io/github/license/qing-gu-web/dsh-optimize-prompt.svg)](LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/qing-gu-web/dsh-optimize-prompt.svg)](https://github.com/qing-gu-web/dsh-optimize-prompt/stargazers)
+[![CI](https://github.com/qing-gu-web/dsh-prompt-expansion/actions/workflows/ci.yml/badge.svg)](https://github.com/qing-gu-web/dsh-prompt-expansion/actions/workflows/ci.yml)
+[![license](https://img.shields.io/github/license/qing-gu-web/dsh-prompt-expansion.svg)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/qing-gu-web/dsh-prompt-expansion.svg)](https://github.com/qing-gu-web/dsh-prompt-expansion/stargazers)
 
 [English](README.md) | 中文
 
@@ -24,7 +24,7 @@
 **在 DSH 的 Discover 里装。** 打开 **插件 → 发现 → 管理索引源**，添加本仓库的插件索引，然后从列表里点安装：
 
 ```
-https://raw.githubusercontent.com/qing-gu-web/dsh-optimize-prompt/main/index.json
+https://raw.githubusercontent.com/qing-gu-web/dsh-prompt-expansion/main/index.json
 ```
 
 索引钉在具体 git 提交上，安装可复现，也不需要 npm 账号。
@@ -32,7 +32,7 @@ https://raw.githubusercontent.com/qing-gu-web/dsh-optimize-prompt/main/index.jso
 **从仓库源码装。** 克隆仓库，然后在应用里 **插件 → 添加插件** 指向该目录。本地目录安装是链接，改代码不用重装。
 
 ```sh
-git clone https://github.com/qing-gu-web/dsh-optimize-prompt.git
+git clone https://github.com/qing-gu-web/dsh-prompt-expansion.git
 ```
 
 如果插件行处于禁用状态请启用它，然后新建一个会话，让按钮、工具与命令完成注册。
@@ -98,8 +98,8 @@ git clone https://github.com/qing-gu-web/dsh-optimize-prompt.git
 配置写在插件行上，修改 profile 的 `cordis.patch.yml` 即可，无需重装：
 
 ```yaml
-- id: dsh-optimize-prompt
-  name: 'dsh-optimize-prompt'
+- id: dsh-prompt-expansion
+  name: 'dsh-prompt-expansion'
   config:
     modelSource: host          # host | byok
     mode: user

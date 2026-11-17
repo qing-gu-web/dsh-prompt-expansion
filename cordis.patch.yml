@@ -1,5 +1,5 @@
-# dsh-optimize-prompt bundle layer: inserts the optimizer plugin row.
+# dsh-prompt-expansion bundle layer: inserts the optimizer plugin row.
 - insert:
-    - id: dsh-optimize-prompt
-      name: 'dsh-optimize-prompt'
+    - id: dsh-prompt-expansion
+      name: 'dsh-prompt-expansion'
       config: {}

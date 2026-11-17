@@ -1,8 +1,8 @@
 blank_issues_enabled: false
 contact_links:
   - name: Install and configuration help
-    url: https://github.com/qing-gu-web/dsh-optimize-prompt#configure
+    url: https://github.com/qing-gu-web/dsh-prompt-expansion#configure
     about: Install steps, the config table, and how to switch between the host model and BYOK.
   - name: Privacy statement
-    url: https://github.com/qing-gu-web/dsh-optimize-prompt#privacy
+    url: https://github.com/qing-gu-web/dsh-prompt-expansion#privacy
     about: What leaves your machine, and what never does.

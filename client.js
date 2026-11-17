@@ -9,7 +9,7 @@
  */
 
 window.__ModuleLoader__.load({
-  id: 'dsh-optimize-prompt',
+  id: 'dsh-prompt-expansion',
   factory(require) {
     const React = require('react')
     const h = React.createElement

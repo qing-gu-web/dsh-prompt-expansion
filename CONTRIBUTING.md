@@ -6,8 +6,8 @@ breaks one needs a very good argument, not just a passing test suite.
 ## Set up
 
 ```sh
-git clone https://github.com/qing-gu-web/dsh-optimize-prompt.git
-cd dsh-optimize-prompt
+git clone https://github.com/qing-gu-web/dsh-prompt-expansion.git
+cd dsh-prompt-expansion
 node --version        # ^22.15.0 || >=24.0.0
 npm test              # 50 engine/route checks + 6 client bundle states
 npm run check         # syntax check every shipped module

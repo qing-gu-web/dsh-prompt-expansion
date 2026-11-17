@@ -77,5 +77,5 @@ body:
     id: config
     attributes:
       label: Relevant configuration
-      description: The `dsh-optimize-prompt` row from `cordis.patch.yml`, with `byok.apiKey` removed.
+      description: The `dsh-prompt-expansion` row from `cordis.patch.yml`, with `byok.apiKey` removed.
       render: yaml

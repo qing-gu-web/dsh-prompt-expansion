@@ -10,7 +10,7 @@
   },
   "plugins": [
     {
-      "name": "dsh-optimize-prompt",
+      "name": "dsh-prompt-expansion",
       "title": {
         "en": "Prompt optimizer",
         "zh": "提示词优化"
@@ -21,9 +21,9 @@
       },
       "icon": "icon.svg",
       "author": "qing-gu-web",
-      "homepage": "https://github.com/qing-gu-web/dsh-optimize-prompt",
+      "homepage": "https://github.com/qing-gu-web/dsh-prompt-expansion",
       "repository": {
-        "url": "https://github.com/qing-gu-web/dsh-optimize-prompt"
+        "url": "https://github.com/qing-gu-web/dsh-prompt-expansion"
       },
       "versions": [
         {
@@ -31,7 +31,7 @@
           "publishTimestamp": 1794875657,
           "source": {
             "type": "git",
-            "url": "https://github.com/qing-gu-web/dsh-optimize-prompt",
+            "url": "https://github.com/qing-gu-web/dsh-prompt-expansion",
             "commit": "3293deba33ce317585432f337254ff7d8a603159"
           },
           "engines": {

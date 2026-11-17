@@ -90,7 +90,7 @@ await import('../client.js')
 
 assert.equal(loaded.length, 1, 'the client bundle must register exactly one module')
 const entry = loaded[0]
-assert.equal(entry.id, 'dsh-optimize-prompt', 'the module id must equal the package name')
+assert.equal(entry.id, 'dsh-prompt-expansion', 'the module id must equal the package name')
 assert.equal(typeof entry.factory, 'function')
 
 const clientModule = entry.factory(fakeRequire)
