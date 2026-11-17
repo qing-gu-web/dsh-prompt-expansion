@@ -76,12 +76,12 @@ git tag vX.Y.Z
 node scripts/build-index.mjs      # after committing — it pins the new SHA
 git commit -am "market: index for vX.Y.Z"
 git push --follow-tags
-npm publish                        # only if the npm package is part of the release
 ```
 
-The repository's `index.json` is what DSH's Discover tab reads; see
-[docs/PUBLISHING.md](docs/PUBLISHING.md). It must be committed **after** the code it
-points at.
+There is no npm publish step: the plugin is distributed from this repository, and
+`index.json` is the install path. See [docs/PUBLISHING.md](docs/PUBLISHING.md) for why,
+and for the community-catalog submission. The index must be committed **after** the
+code it points at.
 
 ## Reporting a model problem
 

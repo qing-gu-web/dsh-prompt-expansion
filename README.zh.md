@@ -1,8 +1,8 @@
 # dsh-optimize-prompt
 
 [![CI](https://github.com/qing-gu-web/dsh-optimize-prompt/actions/workflows/ci.yml/badge.svg)](https://github.com/qing-gu-web/dsh-optimize-prompt/actions/workflows/ci.yml)
-[![npm](https://img.shields.io/npm/v/dsh-optimize-prompt.svg)](https://www.npmjs.com/package/dsh-optimize-prompt)
-[![license](https://img.shields.io/npm/l/dsh-optimize-prompt.svg)](LICENSE)
+[![license](https://img.shields.io/github/license/qing-gu-web/dsh-optimize-prompt.svg)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/qing-gu-web/dsh-optimize-prompt.svg)](https://github.com/qing-gu-web/dsh-optimize-prompt/stargazers)
 
 [English](README.md) | 中文
 
@@ -12,7 +12,7 @@
 
 ## 功能
 
-- **输入框按钮** —— 输入框下方有一个 **优化** 按钮。写好提示词点一下，草稿就地换成优化后的版本，原来的草稿点 **撤销** 即可恢复。
+- **输入框按钮** —— 输入框工具行里一个不带文字的闪光图标按钮。写好提示词点一下，草稿就地换成优化后的版本；旁边随即出现 **发送**，**撤销** 可恢复原草稿。
 - **`optimize_prompt` 工具** —— 你要求改进某段提示词时，由 Agent 调用。返回优化结果与审计信息。
 - **`/optimize` 命令** —— 你自己在输入框执行，不会生成一条模型消息。
 - **结果卡片** —— 优化后文本、用于对比的原文、变更摘要、警告、一键复制。
@@ -21,25 +21,23 @@
 
 ## 安装
 
-三种方式，从方便到可控：
-
-**在 DSH 的 Discover 里装。** 添加本仓库的插件索引，然后从列表里点安装：
+**在 DSH 的 Discover 里装。** 打开 **插件 → 发现 → 管理索引源**，添加本仓库的插件索引，然后从列表里点安装：
 
 ```
 https://raw.githubusercontent.com/qing-gu-web/dsh-optimize-prompt/main/index.json
 ```
 
-**从 npm 装。**
-
-```sh
-dsh plugin add dsh-optimize-prompt
-```
+索引钉在具体 git 提交上，安装可复现，也不需要 npm 账号。
 
 **从仓库源码装。** 克隆仓库，然后在应用里 **插件 → 添加插件** 指向该目录。本地目录安装是链接，改代码不用重装。
 
+```sh
+git clone https://github.com/qing-gu-web/dsh-optimize-prompt.git
+```
+
 如果插件行处于禁用状态请启用它，然后新建一个会话，让按钮、工具与命令完成注册。
 
-> npm 包名是 `dsh-optimize-prompt`。npm 上那个不带限定的 `dsh-prompt-optimizer` 是另一个无关项目，别装错。
+> 本插件没有发布到 npm。npm 上那个 `dsh-prompt-optimizer` 是另一个无关项目，只从本仓库安装。
 
 ## 使用
 

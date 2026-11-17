@@ -1,8 +1,8 @@
 # dsh-optimize-prompt
 
 [![CI](https://github.com/qing-gu-web/dsh-optimize-prompt/actions/workflows/ci.yml/badge.svg)](https://github.com/qing-gu-web/dsh-optimize-prompt/actions/workflows/ci.yml)
-[![npm](https://img.shields.io/npm/v/dsh-optimize-prompt.svg)](https://www.npmjs.com/package/dsh-optimize-prompt)
-[![license](https://img.shields.io/npm/l/dsh-optimize-prompt.svg)](LICENSE)
+[![license](https://img.shields.io/github/license/qing-gu-web/dsh-optimize-prompt.svg)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/qing-gu-web/dsh-optimize-prompt.svg)](https://github.com/qing-gu-web/dsh-optimize-prompt/stargazers)
 
 English | [中文](README.zh.md)
 
@@ -15,9 +15,9 @@ You never get your input silently replaced.
 
 ## What it does
 
-- **Composer button** — an **Optimize** button sits under the input box. Type a
-  prompt, click it, and the draft is replaced with the optimized version; the
-  previous draft stays one **Undo** click away.
+- **Composer button** — an icon-only sparkle button in the composer's tool row.
+  Type a prompt, click it, and the draft is replaced with the optimized version;
+  **Send** then appears beside it, and **Undo** restores what you had.
 - **`optimize_prompt` tool** — the agent calls it when you ask it to improve a
   prompt. Returns the optimized text plus an audit trail.
 - **`/optimize` command** — you run it yourself from the composer; it does not
@@ -31,30 +31,29 @@ You never get your input silently replaced.
 
 ## Install
 
-Three ways, most convenient first.
-
-**From DSH Discover.** Add this repository's plugin index in Discover, then
-install from the list:
+**From DSH Discover.** Open **Plugins → Discover → Manage index sources**, add
+this repository's plugin index, then install the entry from the list:
 
 ```
 https://raw.githubusercontent.com/qing-gu-web/dsh-optimize-prompt/main/index.json
 ```
 
-**From npm.**
+The index pins a git commit, so an install is reproducible and needs no npm
+account.
+
+**From a checkout.** Clone the repository, then choose **Plugins → Add plugin** in
+the app and point at the directory. A local directory install links the checkout,
+so edits take effect without reinstalling.
 
 ```sh
-dsh plugin add dsh-optimize-prompt
+git clone https://github.com/qing-gu-web/dsh-optimize-prompt.git
 ```
-
-**From a checkout.** Clone the repository, then in the app choose
-**Plugins → Add plugin** and point at the directory. A local directory install
-links the checkout, so edits take effect without reinstalling.
 
 Enable the plugin row if it comes up disabled, then start a new session so the
 button, tool, and command are registered.
 
-> The npm name is `dsh-optimize-prompt`. The unqualified `dsh-prompt-optimizer`
-> package on npm is an unrelated project, so make sure you install the name above.
+> There is no npm package. The unqualified `dsh-prompt-optimizer` on npm is an
+> unrelated project; this plugin installs from this repository only.
 
 ## Use it
 
