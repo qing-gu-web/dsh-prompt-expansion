@@ -31,15 +31,18 @@ You never get your input silently replaced.
 
 ## Install
 
+**From npm.**
+
+```sh
+dsh plugin add dsh-prompt-expansion
+```
+
 **From DSH Discover.** Open **Plugins → Discover → Manage index sources**, add
 this repository's plugin index, then install the entry from the list:
 
 ```
 https://raw.githubusercontent.com/qing-gu-web/dsh-prompt-expansion/main/index.json
 ```
-
-The index pins a git commit, so an install is reproducible and needs no npm
-account.
 
 **From a checkout.** Clone the repository, then choose **Plugins → Add plugin** in
 the app and point at the directory. A local directory install links the checkout,
@@ -51,9 +54,6 @@ git clone https://github.com/qing-gu-web/dsh-prompt-expansion.git
 
 Enable the plugin row if it comes up disabled, then start a new session so the
 button, tool, and command are registered.
-
-> There is no npm package. The unqualified `dsh-prompt-optimizer` on npm is an
-> unrelated project; this plugin installs from this repository only.
 
 ## Use it
 

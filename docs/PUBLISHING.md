@@ -73,27 +73,35 @@ Admission requirements, checked by their CI:
 Copy the row format from the repository's own `contributing.md` at submission time
 rather than from here; the format moves.
 
-## 3. npm — deliberately not done
+## 3. npm — published
 
-Publishing to npm would add a registry-mapped row to the community index and enable
-`dsh plugin add dsh-prompt-expansion`. It is blocked on this account, not on the code:
+`dsh-prompt-expansion@0.1.0` is on the public registry, so
+`dsh plugin add dsh-prompt-expansion` works and the community index can map the entry
+to a version.
 
-- npm requires a second factor **for publishing** once 2FA is enabled, and removed
-  the "authorization only" mode;
-- this account's 2FA is a **security key**, so there is no TOTP code to type, and the
-  granular-token "Bypass 2FA" option is not exposed;
-- `npm publish` therefore fails with `E403` / `EOTP` before uploading anything.
-
-If that is ever revisited, the shortest unblocking step is to add a TOTP authenticator
-app to the npm account (which also produces the recovery codes a security-key-only
-account otherwise lacks), then:
+Publish with the official registry explicitly, because this machine's default registry
+is a read-only mirror:
 
 ```sh
-npm publish --registry=https://registry.npmjs.org/          # with a fresh OTP
-DSH_INDEX_SOURCE=npm node scripts/build-index.mjs           # switch the index to npm
+npm publish --registry=https://registry.npmjs.org/
+DSH_INDEX_SOURCE=npm node scripts/build-index.mjs   # point the index at the registry
 ```
 
-Nothing else in the repository depends on that decision.
+### Two behaviours that look like failures
+
+**A brand-new package's first publish is staged.** npm creates a public placeholder at
+`0.0.0-stage` ("Temporary package placeholder for staged publishing") and holds the real
+version until it is approved. The CLI reports success and prints "being processed",
+which is easy to mistake for a broken release. The approval happens in the browser
+session `npm publish` opens, or at **npmjs.com → Staged Packages**. Until then
+`npm view <name>@<version>` returns 404 while the placeholder is `latest`.
+
+**Write actions need a second factor.** This account's 2FA is a security key, so there
+is no 6-digit code to type and `--otp` cannot be used directly. The workable paths are
+the browser approval flow that `npm publish` opens, a recovery code passed as `--otp`,
+or clearing **Require two-factor authentication for write actions** on the account's
+2FA page for the duration of the release. Keep the recovery codes saved: a
+security-key-only account has no other way back in.
 
 ## Release checklist
 
@@ -102,11 +110,17 @@ npm test && npm run check
 # 1. bump "version" in package.json and add a CHANGELOG section
 git commit -am "release: vX.Y.Z"
 git tag vX.Y.Z
-# 2. regenerate the index and commit it separately
-node scripts/build-index.mjs
+# 2. publish, and finish the browser approval if npm opens one
+npm publish --registry=https://registry.npmjs.org/
+npm view dsh-prompt-expansion@X.Y.Z --prefer-online --registry=https://registry.npmjs.org/
+# 3. regenerate the index against the registry and commit it separately
+DSH_INDEX_SOURCE=npm node scripts/build-index.mjs
 git commit -am "market: index for vX.Y.Z"
 git push --follow-tags
 ```
+
+Step 2's `npm view` must print the version before step 3 runs: an index that points at
+a version the registry does not serve yet is worse than no index at all.
 
 Codeload for `raw.githubusercontent.com` can lag a minute or two behind the push; the
 index URL is live when that branch is.

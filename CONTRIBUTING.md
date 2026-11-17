@@ -73,15 +73,16 @@ npm run check
 # bump "version" in package.json and add a CHANGELOG entry
 git commit -am "release: vX.Y.Z"
 git tag vX.Y.Z
+npm publish --registry=https://registry.npmjs.org/   # finish the browser approval if asked
 node scripts/build-index.mjs      # after committing — it pins the new SHA
 git commit -am "market: index for vX.Y.Z"
 git push --follow-tags
 ```
 
-There is no npm publish step: the plugin is distributed from this repository, and
-`index.json` is the install path. See [docs/PUBLISHING.md](docs/PUBLISHING.md) for why,
-and for the community-catalog submission. The index must be committed **after** the
-code it points at.
+The registry is published to before the index is regenerated: an index that names a
+version npm does not serve yet breaks every install. Both `index.json` and the
+community-catalog entry are covered in [docs/PUBLISHING.md](docs/PUBLISHING.md), which
+also records why a first publish shows a `0.0.0-stage` placeholder.
 
 ## Reporting a model problem
 

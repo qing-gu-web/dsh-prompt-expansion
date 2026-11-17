@@ -21,13 +21,17 @@
 
 ## 安装
 
+**从 npm 装。**
+
+```sh
+dsh plugin add dsh-prompt-expansion
+```
+
 **在 DSH 的 Discover 里装。** 打开 **插件 → 发现 → 管理索引源**，添加本仓库的插件索引，然后从列表里点安装：
 
 ```
 https://raw.githubusercontent.com/qing-gu-web/dsh-prompt-expansion/main/index.json
 ```
-
-索引钉在具体 git 提交上，安装可复现，也不需要 npm 账号。
 
 **从仓库源码装。** 克隆仓库，然后在应用里 **插件 → 添加插件** 指向该目录。本地目录安装是链接，改代码不用重装。
 
@@ -36,8 +40,6 @@ git clone https://github.com/qing-gu-web/dsh-prompt-expansion.git
 ```
 
 如果插件行处于禁用状态请启用它，然后新建一个会话，让按钮、工具与命令完成注册。
-
-> 本插件没有发布到 npm。npm 上那个 `dsh-prompt-optimizer` 是另一个无关项目，只从本仓库安装。
 
 ## 使用
 

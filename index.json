@@ -28,11 +28,9 @@
       "versions": [
         {
           "version": "0.1.0",
-          "publishTimestamp": 1794877210,
+          "publishTimestamp": 1794878596,
           "source": {
-            "type": "git",
-            "url": "https://github.com/qing-gu-web/dsh-prompt-expansion",
-            "commit": "c94bbdcb3e23a30d0a60fb3d090bbc9f6e3bd2f0"
+            "type": "npm"
           },
           "engines": {
             "dsh": ">=0.2.2-rc.1"
