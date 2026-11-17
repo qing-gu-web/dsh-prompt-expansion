@@ -28,11 +28,11 @@
       "versions": [
         {
           "version": "0.1.0",
-          "publishTimestamp": 1794840285,
+          "publishTimestamp": 1794875657,
           "source": {
             "type": "git",
             "url": "https://github.com/qing-gu-web/dsh-optimize-prompt",
-            "commit": "e73e4962f271c314a0868ddac09205b106d5a02d"
+            "commit": "3293deba33ce317585432f337254ff7d8a603159"
           },
           "engines": {
             "dsh": ">=0.2.2-rc.1"
